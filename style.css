@@ -21,7 +21,8 @@ body{
 .main{
     width: 100vw;
     display: grid;
-    grid-template-rows: min-content 70vh;
+    grid-template-rows: min-content min-content;
+   
 }
 /*heading section*/
 .heading-section{
@@ -127,8 +128,8 @@ body{
     padding-top: 5rem;
     grid-row: 2/3;
     grid-template-columns:  repeat(8,1fr);
-    /* grid-template-rows: repeat(auto-fit,min-content) ; */
     row-gap: 1rem;
+    padding-bottom: 5rem;
 }
 
 .todo-ul{

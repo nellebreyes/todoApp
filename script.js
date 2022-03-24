@@ -12,11 +12,15 @@ let errorMessage = document.querySelector('.err-msg');
 /*start of event for submitting the form to add a new todo*/
 
 function addLiElement(inputText){
-    let html = `<li class="todo-ul-li bg-li-color">
+    let pattern = /^[a-zA-Z0-9 !%?\.]{1,50}$/;
+    if(pattern.test(inputText)){
+        let html = `<li class="todo-ul-li bg-li-color">
                     ${inputText} 
                     <i class="fa-solid fa-trash-can"></i>
                 </li>`;
-    todoUl.innerHTML += html;
+        todoUl.innerHTML += html;
+    }
+   
 }
 
 function addAnLiItem(e){
