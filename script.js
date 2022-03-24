@@ -23,6 +23,7 @@ function addLiElement(inputText){
    
 }
 
+/*delete feature*/
 function addAnLiItem(e){
     e.preventDefault();
     let newTodoInputValue = addTodoInput.value.trim();
@@ -32,6 +33,7 @@ function addAnLiItem(e){
 }
 
 todoUl.addEventListener('click',deleteLiElement)
+/*end of delete feature*/
 
 function deleteLiElement(e){
     if(e.target.className === 'fa-solid fa-trash-can'){
@@ -48,7 +50,7 @@ headingFormAddTodo.addEventListener('submit',addAnLiItem);
 
 function showMatches(e){
     e.preventDefault();
-    let searchTerm = this.value.trim();
+    let searchTerm = this.value.toLowerCase().trim();
     let pattern = /^[a-zA-Z0-9 !%?\.]{1,50}$/;
     if(headingSearchFormInput.value ===''){
         Array.from(todoUl.children).forEach(todo=>{
@@ -62,7 +64,7 @@ function showMatches(e){
         if(pattern.test(searchTerm)){
             e.preventDefault();
             let filterResults = Array.from(todoUl.children).filter(todo=>{
-                if(todo.innerText.includes(searchTerm)){
+                if(todo.innerText.toLowerCase().includes(searchTerm)){
                     return todo;
                 }
             })
@@ -73,7 +75,7 @@ function showMatches(e){
             })
     
             let filteredOut = Array.from(todoUl.children).filter(todo=>{
-                if(!todo.innerText.includes(searchTerm)){
+                if(!todo.innerText.toLowerCase().includes(searchTerm)){
                     return todo;
                 }
             })
